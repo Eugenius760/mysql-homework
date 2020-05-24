@@ -20,3 +20,8 @@ INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("Tori"
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("Jenna", "Hahn", 6, NULL);
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("Janaiah", "Lundblade", 7, NULL);
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("Nika", "Rosen", 8, NULL);
+
+UPDATE employee SET manager_id=2 WHERE id=1;
+UPDATE employee SET manager_id=3 WHERE id=4;
+UPDATE employee SET manager_id=5 WHERE id=6;
+UPDATE employee SET manager_id=7 WHERE id=8;
