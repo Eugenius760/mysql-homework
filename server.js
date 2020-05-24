@@ -18,10 +18,43 @@ connection.connect(function(err) {
 
 function tracker() {
     inquirer
-    .prompt({
-        name: "whatToDo",
-        type: "list",
-        message: "What would you like to do?",
-        choices: ["View All Employees", "View All Departments", "View All Roles", "Add Employee", "Add Role", "Add Deparatment", "Update Employee Role"]
+    .prompt([
+        {
+            name: "whatToDo",
+            type: "list",
+            message: "What would you like to do?",
+            choices: ["View All Employees", "View All Roles", "View All Departments", "Add Employee", "Add Role", "Add Deparatment", "Update Employee Role", "Quit"]
+        },
+    ])
+    .then(function (data) {
+        switch (data.nav) {
+            case "View All Employees":
+                viewAllEmployees();
+                break;
+            case "View All Roles":
+                viewAllRoles();
+                break;
+            case "View All Departments":
+                viewAllDepartments();
+                break;
+            case "Add Employee":
+                addEmployee();
+                break;
+            case "Add Role":
+                addRole();
+                break;
+            case "Add Department":
+                addDepartment();
+                break;
+            case "Update Employee Role":
+                updateEmployee();
+                break;
+            case "Ouit":
+                quit();
+                break;
+        }
     })
+    .catch(function (err) {
+        console.log(err);
+    });
 }
